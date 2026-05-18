@@ -1,0 +1,31 @@
+# Central path configuration.
+#
+# Every notebook reads this file and resolves each entry relative to the
+# repository root (anything not already absolute). Keep all paths relative
+# so the repo runs unchanged on any machine after the data archive is
+# unpacked into data/. Override a single entry with an absolute path only
+# if you keep a large input outside the repo.
+
+data:
+  # Raw GCAM ensemble: one subfolder per scenario, each holding the query
+  # parquets. This is the big tier; see DATA.md for the Zenodo download.
+  scenarios_dir: data/Scenarios
+
+  # Combined per-query caches written by 00_preprocess_scenario_caches.ipynb.
+  cache_dir: data/cache
+
+  # Wide feature/target tables used by the Figure 4 machine-learning step.
+  merged_parquets_dir: data/merged_parquets
+
+  # Per-scenario percentage reductions vs the matched PR0 baseline, used by
+  # the Figure 2 trajectories and maps.
+  regional_reductions_dir: data/regional_reductions
+
+outputs:
+  # One folder per main figure. Notebooks create any sub-folders they need
+  # (per_region, per_pr_grid, excel, models, ...) underneath these.
+  figure1: outputs/figure1
+  figure2: outputs/figure2
+  figure2_si: outputs/figure2_si
+  figure3: outputs/figure3
+  figure4: outputs/figure4

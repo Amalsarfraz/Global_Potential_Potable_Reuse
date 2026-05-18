@@ -1,0 +1,21 @@
+# Core scientific stack
+numpy>=1.24,<2.3
+pandas>=2.0,<2.3
+scipy>=1.10,<1.15
+pyarrow>=14.0           # parquet IO
+PyYAML>=6.0
+
+# Plotting
+matplotlib>=3.7,<3.10
+plotly>=5.18,<6.0
+
+# Machine learning (Figure 4)
+scikit-learn>=1.3,<1.6
+shap>=0.43,<0.46
+
+# IO helpers
+openpyxl>=3.1            # Excel writer used by the variance-decomp notebooks
+
+# Notebook runtime (for `jupyter execute` from the README)
+jupyter>=1.0
+ipykernel>=6.25

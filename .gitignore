@@ -1,0 +1,53 @@
+# ----- generated output -------------------------------------------------------
+# Figures and tables produced by the notebooks. Outputs are reproducible from
+# the data archive plus the notebooks, so we don't version-control them.
+outputs/
+!outputs/README.md
+!outputs/.gitkeep
+
+# ----- data -------------------------------------------------------------------
+# All bulk data lives outside the repo (Zenodo). The data/ folder is here for
+# convenience but contents are not committed.
+data/*
+!data/README.md
+!data/.gitkeep
+
+# ----- timestamped runs from the Fig 4 pipeline -------------------------------
+out_paper_fig4_*
+
+# ----- jupyter ----------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb~
+
+# ----- python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# ----- R ----------------------------------------------------------------------
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+renv/library/
+renv/local/
+renv/lock/
+renv/python/
+renv/staging/
+
+# ----- IDEs and editors -------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ----- OS specific ------------------------------------------------------------
+ehthumbs.db
+Desktop.ini
