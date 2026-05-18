@@ -1,15 +1,9 @@
-# Single conda environment that covers both halves of the analysis: the
+# Single conda environment that covers both of the analysis: the
 # Python figure notebooks and the R map notebook
-# (figure2_yearly_maps_individual.ipynb). One env keeps a reviewer from
-# juggling two installs.
 #
 #   conda env create -f environment.yml
 #   conda activate gcamwaterreuse
 #
-# Python is pinned to 3.11 rather than the 3.8 originally used: 3.8 reached
-# end of life in 2024 and the analysis is not interpreter-version sensitive.
-# The one package conda/CRAN does not carry is JGCRI's `rmap`; install it
-# after the env is built (see README, "Reproduce the analysis").
 
 name: gcamwaterreuse
 
@@ -24,12 +18,12 @@ dependencies:
   - numpy
   - pandas
   - scipy
-  - pyarrow            # parquet read/write
+  - pyarrow            
   - matplotlib
   - plotly
-  - scikit-learn       # Figure 4 CART / random forest / gradient boosting
-  - shap               # Figure 4 attribution
-  - openpyxl           # Excel workbooks written alongside Figures 1 and 3
+  - scikit-learn       
+  - shap               
+  - openpyxl           
   - jupyterlab
   - ipykernel
 
@@ -47,8 +41,5 @@ dependencies:
   - r-viridislite
   - r-irdisplay
   - r-svglite
-  - r-remotes          # used to install rmap from GitHub
+  - r-remotes          
 
-  - pip:
-      # Nothing here yet. Add pip-only packages under this key if needed.
-      - []

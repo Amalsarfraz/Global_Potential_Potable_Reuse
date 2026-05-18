@@ -1,6 +1,7 @@
 # ----- personal backup (do not commit) ----------------------------------------
 # Dated working snapshot kept locally only.
 OG_unchanged_17.05.2026/
+outputs
 
 # ----- generated output -------------------------------------------------------
 # Figures and tables produced by the notebooks are committed so the repo
@@ -10,6 +11,8 @@ OG_unchanged_17.05.2026/
 # All of data/ is committed EXCEPT the raw GCAM ensemble in data/Scenarios/,
 # which is far too large for GitHub and lives on Zenodo instead.
 data/Scenarios/
+data/Scenario_Zenodo/
+data/Scenario_Zenodo.zip/
 !data/Scenarios/.gitkeep
 
 # ----- jupyter ----------------------------------------------------------------
