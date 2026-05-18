@@ -16,15 +16,13 @@ paper.
 |------|------------|
 | `notebooks/` | The analysis. One preprocessing notebook plus one notebook per main figure. |
 | `src/potable_reuse/` | The importable Python package the notebooks share: plotting style, the scenario loader, and the figure writer. Notebooks add `src/` to the path and `import potable_reuse`. |
-| `tools/` |  |
 | `config/paths.yaml` | Every input and output path, resolved relative to the repo root. The one file to edit if your data sits elsewhere. |
 | `data/` |  |
 | `outputs/` |  |
 | `environment.yml` | Conda environment covering both the Python and the R halves. |
 | `requirements.txt` | Pip dependencies for the Python notebooks only. |
 
-`src/` versus `tools/`: anything a notebook imports lives in `src/`;
-anything a person runs from a terminal lives in `tools/`.
+
 
 ## Setup
 
@@ -36,14 +34,9 @@ conda env create -f environment.yml
 conda activate gcamwaterreuse
 ```
 
-The map notebook needs JGCRI's `rmap`, which is not on conda or CRAN.
-Install it once into the active environment:
 
-```bash
-Rscript -e 'remotes::install_github("JGCRI/rmap")'
-```
 
-Python only (skips the maps notebook):
+Python only:
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -54,8 +47,7 @@ pip install -r requirements.txt
 ## Reproduce the analysis
 
 Run the notebooks from `notebooks/`. The path block at the top of each one
-finds the repo root automatically and reads `config/paths.yaml`, so no
-paths need editing as long as `data/` is populated.
+finds the repo root automatically and reads `config/paths.yaml`.
 
 1. **`00_preprocess_scenario_caches.ipynb`** builds the combined per-query
    caches in `data/cache/`. Skip this if you downloaded tier 1, which
@@ -71,9 +63,7 @@ paths need editing as long as `data/` is populated.
 6. **`figure4_cart_shap_combined.ipynb`** the CART and SHAP attribution of
    reduction drivers.
 
-Each notebook writes its panels under `outputs/figure{n}/` in three
-formats: PNG (raster proof at manuscript DPI), SVG (the vector master),
-and a standalone HTML page with the SVG inlined. 
+Each notebook writes its panels under `outputs/figure{n}/`.
 
 ## Citation
 
