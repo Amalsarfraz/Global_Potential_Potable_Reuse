@@ -69,18 +69,15 @@ pip install -r requirements.txt
 Run the notebooks from `notebooks/`. The path block at the top of each one
 finds the repo root automatically and reads `config/paths.yaml`.
 
-1. **`00_preprocess_scenario_caches.ipynb`** builds the combined per-query
-   caches in `data/cache/`. Skip this if you downloaded tier 1, which
-   already contains the caches.
-2. **`figure1_global_displacement.ipynb`** global displacement boxplots
+1. **`figure1_global_displacement.ipynb`** global displacement boxplots
    and the sectoral reallocation of saved municipal water.
-3. **`figure2_regional_trajectories.ipynb`** regional reduction
+2. **`figure2_regional_trajectories.ipynb`** regional reduction
    trajectories with median and interquartile bands.
-4. **`figure2_yearly_maps_individual.ipynb`** the GCAM 32-region world
+3. **`figure2_yearly_maps_individual.ipynb`** the GCAM 32-region world
    maps (R kernel).
-5. **`figure3_variance_decomposition_combined.ipynb`** the inter-scenario
+4. **`figure3_variance_decomposition_combined.ipynb`** the inter-scenario
    variance decomposition.
-6. **`figure4_cart_shap_combined.ipynb`** the CART and SHAP attribution of
+5. **`figure4_cart_shap_combined.ipynb`** the CART and SHAP attribution of
    reduction drivers.
 
 Each notebook writes its panels under `outputs/figure{n}/`.
