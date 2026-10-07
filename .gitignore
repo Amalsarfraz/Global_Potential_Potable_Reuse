@@ -2,6 +2,9 @@
 # Dated working snapshot kept locally only.
 OG_unchanged_17.05.2026/
 outputs
+Final_PR_paper_figures
+notebooks/UPDATED_20260710
+notebooks/old
 
 # ----- generated output -------------------------------------------------------
 # Figures and tables produced by the notebooks are committed so the repo

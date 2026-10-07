@@ -2,89 +2,82 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20262039.svg)](https://doi.org/10.5281/zenodo.20262039)
 
-**Global Potential of Potable Reuse Across Coupled Climate and Socioeconomic Futures**
+**Global Potential of Potable Reuse **
 
 Utrecht University.
 Contact: [a.sarfraz@uu.nl](mailto:a.sarfraz@uu.nl).
 
 This repository holds the analysis code and figure notebooks behind the
-paper. 
+paper. The GCAM model code and the scenario setup are in a separate
+repository.
 
 ## Repository layout
 
-
 | Path | What it is |
 |------|------------|
-| `notebooks/` | The main analysis. One notebook for each figure.|
-| `src/potable_reuse/` | The importable Python package the notebooks share: plotting style, the scenario loader, and the figure writer. Notebooks add `src/` to the path and `import potable_reuse`. |
-| `config/paths.yaml` | Every input and output path, resolved relative to the repo root. The one file to edit if your data sits elsewhere. |
-| `data/` | Input data. Populate it from Zenodo (see below). |
-| `outputs/` | Generated figures and tables. One subfolder per figure. |
-| `environment.yml` | Conda environment covering both Python and R. |
-| `requirements.txt` | Pip dependencies for Python notebooks only. |
+| `notebooks/` | One preprocessing notebook and one notebook for each figure. |
+| `src/potable_reuse/` | Python package shared by the notebooks: plotting style, scenario loader and figure writer. |
+| `config/paths.yaml` | Every input and output path, relative to the repo root. Edit this file if your data sits elsewhere. |
+| `data/` | Input data (see below). |
+| `outputs/` | Generated figures and tables, one subfolder per figure. |
+| `environment.yml` | Conda environment for Python and R. |
+| `requirements.txt` | Pip dependencies for the Python notebooks only. |
 
 ## Data
 
-Only the raw GCAM ensemble is hosted externally because of its size. The
-rest of the inputs ship inside the `data/` subfolders of this
-repository, so a clone already has them.
+Only the processed GCAM ensemble is hosted externally because of its size.
+Everything else is already in `data/`.
 
-| `data/` subfolder | paths.yaml key | What it holds | Source |
-|-------------------|----------------|---------------|--------|
-| `data/Scenarios/` | `scenarios_dir` | The raw GCAM ensemble: 459 scenario folders, each with its query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.20262039) |
-| `data/cache/` | `cache_dir` | Combined per-query caches built by the preprocessing notebook from the raw ensemble. | In the repo. |
-| `data/merged_parquets/` | `merged_parquets_dir` | The merged design matrix used by the attribution notebook. | In the repo. |
-| `data/regional_reductions/` | `regional_reductions_dir` | The per-region reduction parquets (PR50 and PR100) used by the trajectory and map notebooks. | In the repo. |
+| Folder | paths.yaml key | Contents | Source |
+|--------|----------------|----------|--------|
+| `data/Scenarios/` | `scenarios_dir` | Raw GCAM ensemble: 459 scenario folders with their query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.20262039) |
+| `data/cache/` | `cache_dir` | Combined query caches used by Figures 1 and 3. | In the repo, or rebuilt by notebook 00. |
+| `data/regional_reductions/` | `regional_reductions_dir` | Regional municipal withdrawal with and without reuse, for PR50 and PR100. Used by Figures 2 and 4. | In the repo. |
+| `data/merged_parquets/` | `merged_parquets_dir` | Regional municipal withdrawal, groundwater, GDP per capita and population. Used by Figure 5. | In the repo. |
 
-
+The Zenodo download is only needed to rebuild `data/cache/` with
+notebook 00. All figures run from the files already in the repo.
 
 ## Setup
 
-The maps notebook runs on an R kernel while the other four run on
-Python. One conda environment carries both halves, so this is all you
-need:
+Figures 2 and 3 run on an R kernel and the other notebooks on Python.
+One conda environment covers both:
 
 ```bash
 conda env create -f environment.yml
 conda activate gcamwaterreuse
 ```
 
-That installs the Python stack, the R kernel, and registers the
-"R (gcamwaterreuse)" Jupyter kernel that the maps notebook expects. Pick
-the Python kernel for the four Python notebooks and the R kernel for the
-maps notebook.
+This also registers the "R (gcamwaterreuse)" Jupyter kernel.
 
-If you only need the Python notebooks and want to skip R, a plain
-virtual environment works too:
+For the Python notebooks alone, a plain virtual environment is enough:
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-
-
 ## Reproduce the analysis
 
-Run the notebooks from `notebooks/`. The path block at the top of each one
-finds the repo root automatically and reads `config/paths.yaml`.
+Run the notebooks from `notebooks/`. Each one finds the repo root and
+reads `config/paths.yaml` on its own.
 
-1. **`figure1_global_displacement.ipynb`** global displacement boxplots
-   and the sectoral reallocation of saved municipal water.
-2. **`figure2_regional_trajectories.ipynb`** regional reduction
-   trajectories with median and interquartile bands.
-3. **`figure2_yearly_maps_individual.ipynb`** the GCAM 32-region world
-   maps (R kernel).
-4. **`figure3_variance_decomposition_combined.ipynb`** the inter-scenario
-   variance decomposition.
-5. **`figure4_cart_shap_combined.ipynb`** the CART and SHAP attribution of
-   reduction drivers.
+| Notebook | Kernel | Output |
+|----------|--------|--------|
+| `00_preprocess_scenario_caches.ipynb` | Python | Builds the combined query caches in `data/cache/`. Optional. |
+| `figure1_global_displacement.ipynb` | Python | Global municipal reduction and where the saved water goes. |
+| `figure2_yearly_maps_individual.ipynb` | R | Yearly regional reduction maps for PR50 and PR100. |
+| `figure3_composite_maps_panels_20260929.ipynb` | R | Variance decomposition: dominant driver map and regional panels. |
+| `figure4_regional_trajectories_cost.ipynb` | Python | Exemplar region trajectories by reuse cost tier. |
+| `figure5_shap_rc_tiers.ipynb` | Python | SHAP attribution of regional reduction drivers. |
 
-Each notebook writes its panels under `outputs/figure{n}/`.
+Each notebook writes to its own folder, `outputs/figure1/` through
+`outputs/figure5/`. 
+
 
 ## Citation
 
-If you use this code or data, please cite the Zenodo record:
+Please cite the Zenodo record:
 [10.5281/zenodo.20262039](https://doi.org/10.5281/zenodo.20262039).
 
 ## Questions
