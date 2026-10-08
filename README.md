@@ -65,7 +65,7 @@ reads `config/paths.yaml` on its own.
 | Notebook | Kernel | Output |
 |----------|--------|--------|
 | `00_preprocess_scenario_caches.ipynb` | Python | Builds the combined query caches in `data/cache/`. Optional. |
-| `figure1_global_displacement.ipynb` | Python | Global municipal reduction and where the saved water goes. |
+| `figure1_global_mni_reduction.ipynb` | Python | Global municipal reduction and where the saved water goes. |
 | `figure2_yearly_maps_individual.ipynb` | R | Yearly regional reduction maps for PR50 and PR100. |
 | `figure3_composite_maps_panels_20260929.ipynb` | R | Variance decomposition: dominant driver map and regional panels. |
 | `figure4_regional_trajectories_cost.ipynb` | Python | Exemplar region trajectories by reuse cost tier. |
