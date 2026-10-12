@@ -8,8 +8,8 @@ Utrecht University.
 Contact: [a.sarfraz@uu.nl](mailto:a.sarfraz@uu.nl).
 
 This repository holds the analysis code and figure notebooks behind the
-paper. The GCAM model code and the scenario setup are in a separate
-repository.
+paper. The GCAM model code and the scenario setup are in the 
+[water-reuse](https://github.com/JGCRI/water-reuse) repository.
 
 ## Repository layout
 
@@ -30,7 +30,7 @@ Everything else is already in `data/`.
 
 | Folder | paths.yaml key | Contents | Source |
 |--------|----------------|----------|--------|
-| `data/Scenarios/` | `scenarios_dir` | Raw GCAM ensemble: 459 scenario folders with their query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.20262039) |
+| `data/Scenarios/` | `scenarios_dir` |GCAM ensemble scenario folders with their query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.20262039) |
 | `data/cache/` | `cache_dir` | Combined query caches used by Figures 1 and 3. | In the repo, or rebuilt by notebook 00. |
 | `data/regional_reductions/` | `regional_reductions_dir` | Regional municipal withdrawal with and without reuse, for PR50 and PR100. Used by Figures 2 and 4. | In the repo. |
 | `data/merged_parquets/` | `merged_parquets_dir` | Regional municipal withdrawal, groundwater, GDP per capita and population. Used by Figure 5. | In the repo. |
