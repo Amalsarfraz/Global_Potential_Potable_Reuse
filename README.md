@@ -1,8 +1,9 @@
 # Global Potential of Potable Reuse
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20262039.svg)](https://doi.org/10.5281/zenodo.20262039)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23333798.svg)](https://doi.org/10.5281/zenodo.23333798)
 
-**Global Potential of Potable Reuse **
+
+**Global Potential of Potable Reuse**
 
 Utrecht University.
 Contact: [a.sarfraz@uu.nl](mailto:a.sarfraz@uu.nl).
