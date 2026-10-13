@@ -31,7 +31,7 @@ Everything else is already in `data/`.
 
 | Folder | paths.yaml key | Contents | Source |
 |--------|----------------|----------|--------|
-| `data/Scenarios/` | `scenarios_dir` |GCAM ensemble scenario folders with their query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.20262039) |
+| `data/Scenarios/` | `scenarios_dir` |GCAM ensemble scenario folders with their query parquets. | [Zenodo](https://doi.org/10.5281/zenodo.23333798) |
 | `data/cache/` | `cache_dir` | Combined query caches used by Figures 1 and 3. | In the repo, or rebuilt by notebook 00. |
 | `data/regional_reductions/` | `regional_reductions_dir` | Regional municipal withdrawal with and without reuse, for PR50 and PR100. Used by Figures 2 and 4. | In the repo. |
 | `data/merged_parquets/` | `merged_parquets_dir` | Regional municipal withdrawal, groundwater, GDP per capita and population. Used by Figure 5. | In the repo. |
@@ -79,7 +79,7 @@ Each notebook writes to its own folder, `outputs/figure1/` through
 ## Citation
 
 Please cite the Zenodo record:
-[10.5281/zenodo.20262039](https://doi.org/10.5281/zenodo.20262039).
+[10.5281/zenodo.23333798](https://doi.org/10.5281/zenodo.23333798).
 
 ## Questions
 
