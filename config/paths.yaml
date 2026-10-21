@@ -14,18 +14,18 @@ data:
   # Combined per-query caches written by 00_preprocess_scenario_caches.ipynb.
   cache_dir: data/cache
 
-  # Wide feature/target tables used by the Figure 4 machine-learning step.
+  # Wide feature/target tables used by the Figure 5 machine-learning step.
   merged_parquets_dir: data/merged_parquets
 
   # Per-scenario percentage reductions vs the matched PR0 baseline, used by
-  # the Figure 2 trajectories and maps.
+  # the Figure 2 maps and the Figure 4 regional trajectories.
   regional_reductions_dir: data/regional_reductions
 
 outputs:
   # One folder per main figure. Notebooks create any sub-folders they need
-  # (per_region, per_pr_grid, excel, models, ...) underneath these.
+  # (components, source_data, SI, tables, ...) underneath these.
   figure1: outputs/figure1
   figure2: outputs/figure2
-  figure2_si: outputs/figure2_si
   figure3: outputs/figure3
   figure4: outputs/figure4
+  figure5: outputs/figure5
